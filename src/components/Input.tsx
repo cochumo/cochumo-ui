@@ -1,6 +1,17 @@
 import React from 'react';
-import { InputProps } from './Input.types';
 import styled from 'styled-components';
+import { ChangeEventHandler } from 'react';
+
+export interface InputProps {
+  id?: string;
+  label?: string;
+  error?: boolean;
+  message?: string;
+  success?: boolean;
+  disabled?: boolean;
+  placeholder?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+}
 
 const StyledInput = styled.input<InputProps>`
   height: 40px;
