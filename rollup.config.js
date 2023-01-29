@@ -30,8 +30,13 @@ export default [
     external: ['react', 'react-dom', 'styled-components']
   },
   {
+    input: 'dist/cjs/types/index.d.ts',
+    output: [{ file: 'dist/cjs/index.d.ts', format: 'cjs' }],
+    plugins: [dts.default()]
+  },
+  {
     input: 'dist/esm/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    output: [{ file: 'dist/esm/index.d.ts', format: 'esm' }],
     plugins: [dts.default()]
   }
 ];
