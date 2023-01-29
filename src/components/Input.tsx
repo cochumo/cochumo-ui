@@ -1,6 +1,6 @@
-import React from "react";
-import { InputProps } from "./Input.types";
-import styled from "styled-components";
+import React from 'react';
+import { InputProps } from './Input.types';
+import styled from 'styled-components';
 
 const StyledInput = styled.input<InputProps>`
   height: 40px;
@@ -9,12 +9,12 @@ const StyledInput = styled.input<InputProps>`
   border: solid 2px
     ${(props) =>
       props.disabled
-        ? "#e4e3ea"
+        ? '#e4e3ea'
         : props.error
-        ? "#a9150b"
+        ? '#a9150b'
         : props.success
-        ? "#067d68"
-        : "#353637"};
+        ? '#067d68'
+        : '#353637'};
   background-color: #fff;
   &:focus {
     border: solid 2px #1b116e;
@@ -23,7 +23,7 @@ const StyledInput = styled.input<InputProps>`
 
 const StyledLabel = styled.div<InputProps>`
   font-size: 14px;
-  color: ${(props) => (props.disabled ? "#e4e3ea" : "#080808")};
+  color: ${(props) => (props.disabled ? '#e4e3ea' : '#080808')};
   padding-bottom: 6px;
 `;
 
@@ -36,7 +36,7 @@ const StyledMessage = styled.div<InputProps>`
 const StyledText = styled.p<InputProps>`
   margin: 0px;
   color: ${(props) =>
-    props.disabled ? "#e4e3ea" : props.error ? "#a9150b" : "#080808"};
+    props.disabled ? '#e4e3ea' : props.error ? '#a9150b' : '#080808'};
 `;
 
 const Input: React.FC<InputProps> = ({
