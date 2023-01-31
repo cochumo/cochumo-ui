@@ -1,7 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
-
 const pkg = require('./package.json');
 
 export default [
@@ -11,12 +10,12 @@ export default [
       {
         file: pkg.main,
         format: 'cjs',
-        sourcemap: true,
+        sourcemap: false,
       },
       {
         file: pkg.module,
         format: 'esm',
-        sourcemap: true,
+        sourcemap: false,
       },
     ],
     plugins: [
@@ -28,16 +27,16 @@ export default [
         exclude: ['**/__tests__/**'],
       }),
     ],
-    external: ['react', 'react-dom', '@emotion/styled', '@emotion/react', 'styled-components'],
+    external: ['react', 'react-dom', '@emotion/styled', '@emotion/react'],
   },
   {
     input: 'dist/cjs/types/index.d.ts',
     output: [{ file: 'dist/cjs/index.d.ts', format: 'cjs' }],
-    plugins: [dts.default()],
+    plugins: [dts()],
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/esm/index.d.ts', format: 'esm' }],
-    plugins: [dts.default()],
+    plugins: [dts()],
   },
 ];
