@@ -1,42 +1,43 @@
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
-import { terser } from 'rollup-plugin-terser';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+
+const pkg = require('./package.json');
 
 export default [
   {
     input: 'src/index.ts',
     output: [
       {
-        file: "dist/cjs/index.js",
+        file: pkg.main,
         format: 'cjs',
-        sourcemap: true
+        sourcemap: true,
       },
       {
-        file: "dist/esm/index.js",
+        file: pkg.module,
         format: 'esm',
-        sourcemap: true
-      }
+        sourcemap: true,
+      },
     ],
     plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
-      terser()
+      commonjs({
+        include: ['node_modules/**'],
+      }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        exclude: ['**/__tests__/**'],
+      }),
     ],
-    external: ['react', 'react-dom', 'styled-components']
+    external: ['react', 'react-dom', '@emotion/styled', '@emotion/react', 'styled-components'],
   },
   {
     input: 'dist/cjs/types/index.d.ts',
     output: [{ file: 'dist/cjs/index.d.ts', format: 'cjs' }],
-    plugins: [dts.default()]
+    plugins: [dts.default()],
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/esm/index.d.ts', format: 'esm' }],
-    plugins: [dts.default()]
-  }
+    plugins: [dts.default()],
+  },
 ];
