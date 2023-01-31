@@ -1,23 +1,23 @@
-# react-ts-sample-component
+# cochumo-ui
 
 This is a sample UI component
 
 ## installation
 
 ```bash
-$ npm install react-component-lib-sample @emotion/react @emotion/styled
+$ npm install cochumo-ui @emotion/react @emotion/styled
 ```
 
 or
 
 ```bash
-$ yarn add react-component-lib-sample @emotion/react @emotion/styled
+$ yarn add cochumo-ui @emotion/react @emotion/styled
 ```
 
 ## example
 
 ```jsx
-import { Text } from 'react-component-lib-sample'
+import { Text } from 'cochumo-ui'
 
 <Text text="hello, world" />
 ```
