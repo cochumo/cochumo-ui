@@ -1,6 +1,6 @@
-import React, { VFC } from 'react';
+import { VFC } from 'react';
 import styled from '@emotion/styled';
-import { fontSize } from '../../constants';
+import { fontSize } from '@/constants';
 
 export type TextProps = {
   text: string;
